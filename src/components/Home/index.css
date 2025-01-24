@@ -1,0 +1,200 @@
+.Home-container {
+  background-color: #161625;
+  width: 100vw;
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search-container {
+  padding: 12px;
+  background: #2f2f43;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 39px;
+  width: 100%;
+  height: 65px;
+}
+@media screen and (min-width: 768px) {
+  .search-container {
+    width: 76%;
+  }
+}
+.input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  line-height: 24px;
+  width: 100%;
+  margin: 12px;
+  color: #94a3b8;
+}
+.search-icon {
+  color: #94a3b8;
+  font-size: 24px;
+}
+.Covid-container {
+  text-align: center;
+  min-width: 120px;
+  margin: 10px;
+}
+@media screen and (min-width: 768px) {
+  .Covid-container {
+    margin: 30px;
+  }
+}
+.stats-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.stats-icon {
+  font-size: 38px;
+}
+.stats-number {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.red {
+  color: #ff073a;
+}
+.blue {
+  color: #007bff;
+}
+.green {
+  color: #28a745;
+}
+.gray {
+  color: #6c757d;
+}
+
+.country-states {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .country-states {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.state-wise-table-Covid-container {
+  width: 100%;
+  background: #1e1e30;
+  border: 1px solid #475569;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 12px;
+}
+.table-header {
+  display: flex;
+  flex-direction: row;
+}
+.table-heading-container {
+  display: flex;
+}
+.table-tittle-content {
+  width: 18%;
+}
+.table-header-title {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f8fafc;
+  padding: 8px;
+  margin-left: 27px;
+  margin-right: 27px;
+}
+.order-btn {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid transparent;
+}
+.order-icon {
+  font-size: 20px;
+}
+hr {
+  border: 1px solid #475569;
+}
+.state-wise-Covid-lists {
+  width: 100%;
+}
+.state-list-content {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.home-column {
+  width: 14.9%;
+}
+.state-Covid-details {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 17px;
+  width: 24%;
+  color: #f1f5f9;
+}
+.confirmed-Covid-details {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #ff073a;
+}
+
+.active-Covid-details {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #007bff;
+}
+
+.recovered-Covid-details {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #28a745;
+}
+
+.deceased-Covid-details {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #6c757d;
+}
+.population-Covid-details {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #94a3b8;
+}

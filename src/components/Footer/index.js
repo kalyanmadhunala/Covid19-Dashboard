@@ -1,7 +1,6 @@
 import {FiInstagram} from 'react-icons/fi'
 import {VscGithubAlt} from 'react-icons/vsc'
 import {FaTwitter} from 'react-icons/fa'
-import {Link} from 'react-router-dom'
 import './index.css'
 
 export default function Footer() {

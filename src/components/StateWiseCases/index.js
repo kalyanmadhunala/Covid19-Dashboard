@@ -180,31 +180,37 @@ class StateWiseCases extends Component {
     const options = {
       method: 'GET',
     }
-
-    const response = await fetch(apiUrl, options)
-    if (response.ok) {
-      const data = await response.json()
-      const stateTastedData = data[stateCode].total.tested
-      const stateObject = statesList.filter(
-        each => each.state_code === stateCode,
-      )
-      const eachState = data[stateCode].total
-      const stateName = stateObject[0].state_name
-
-      const datedata = new Date(data[stateCode].meta.last_updated)
-
-      this.setState({
-        eachStateTotalData: eachState,
-        totalTestedData: stateTastedData,
-        nameOfState: stateName,
-        isLoading: false,
-        id: stateCode,
-        dataarray: data,
-        date: datedata,
-        stateCode,
-      })
-    } else {
-      console.log('Fetch Error')
+    try {
+      const response = await fetch(apiUrl, options)
+      if (response.ok) {
+        const data = await response.json()
+        const stateTastedData = data[stateCode].total.tested || 0
+        const stateObject = statesList.find(
+          each => each.state_code === stateCode,
+        )
+        const eachState = data[stateCode]?.total || {}
+        const stateName = stateObject?.state_name || 'Unknown'
+        const datedata = new Date(
+          data[stateCode]?.meta?.last_updated || Date.now(),
+        )
+        console.log(stateTastedData)
+        this.setState({
+          eachStateTotalData: eachState,
+          totalTestedData: stateTastedData,
+          nameOfState: stateName,
+          isLoading: false,
+          id: stateCode,
+          dataarray: data,
+          date: datedata,
+          stateCode,
+        })
+      } else {
+        console.error('Fetch Error:', response.status)
+        this.setState({isLoading: false})
+      }
+    } catch (error) {
+      console.error('Fetch Error:', error)
+      this.setState({isLoading: false})
     }
   }
 
@@ -289,7 +295,7 @@ class StateWiseCases extends Component {
           </div>
         </div>
 
-        <div className="total-district-data-block">
+        <div className="total-district-data-block" testid="lineChartsContainer">
           <h1 className={`district-heading ${category}-color`}>
             Top Districts
           </h1>
@@ -309,7 +315,7 @@ class StateWiseCases extends Component {
               </ul>
             </div>
           </div>
-          <div className="graphs-data" testid="lineChartsContainer">
+          <div className="graphs-data">
             <TimeLines stateCode={stateCode} category={category} />
           </div>
         </div>

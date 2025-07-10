@@ -25,7 +25,6 @@ class TimeLines extends Component {
 
   getChartData = async () => {
     const {stateCode} = this.props
-    console.log(stateCode)
     const apiUrl = `https://apis.ccbp.in/covid19-timelines-data`
     const options = {
       method: 'GET',
@@ -153,10 +152,12 @@ class TimeLines extends Component {
 
   allChartsView = () => (
     <>
-      <div className="barchart-container">{this.barChart()}</div>
+      <div data-testid="barChartContainer" className="barchart-container">
+        {this.barChart()}
+      </div>
 
       <h1 className="charts-title">Spread Trends</h1>
-      <div testid="lineChartsContainer" className="barcharts-container">
+      <div data-testid="lineChartsContainer" className="barcharts-container">
         <div className="charts confirmed-background">
           {this.graph('confirmed', '#FF073A')}
         </div>

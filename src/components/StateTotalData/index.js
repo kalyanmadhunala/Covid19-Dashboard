@@ -25,24 +25,28 @@ class StateTotalData extends Component {
 
     const confirmedData = {
       name: 'Confirmed',
-      logo: 'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906699/check-mark_1_o3kbj1.png',
+      logo:
+        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906699/check-mark_1_o3kbj1.png',
       value: totalConfirmed,
     }
 
     const activeData = {
       name: 'Active',
-      logo: 'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906741/protection_1_re7mxu.png',
+      logo:
+        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906741/protection_1_re7mxu.png',
       value: totalActive,
     }
 
     const recoveredData = {
       name: 'Recovered',
-      logo: 'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906752/recovered_1_kpsqyj.png',
+      logo:
+        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906752/recovered_1_kpsqyj.png',
       value: totalRecovered,
     }
     const deceasedData = {
       name: 'Deceased',
-      logo: 'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906686/breathing_1_dkacsd.png',
+      logo:
+        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906686/breathing_1_dkacsd.png',
       value: totalDeceased,
     }
 

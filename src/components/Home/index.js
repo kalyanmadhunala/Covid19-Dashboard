@@ -1,5 +1,4 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import {BsSearch} from 'react-icons/bs'
 import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
@@ -190,7 +189,6 @@ class Home extends Component {
       let nationalWideCovidRecoveredCases = 0
       let nationalWideCovidDeceasedCases = 0
       let nationalWideCovidActiveCases = 0
-
       // Iterating through the statesList array to calculate national wide statistics
       statesList.forEach(state => {
         if (data[state.state_code]) {
@@ -214,21 +212,11 @@ class Home extends Component {
       const states = statesList.map(each => ({
         stateName: each.state_name,
         stateCode: each.state_code,
-        confirmed: Object.keys(data)
-          .filter(state => state === each.state_code)
-          .map(e => data[e].total.confirmed),
-        recovered: Object.keys(data)
-          .filter(state => state === each.state_code)
-          .map(e => data[e].total.recovered),
-        deceased: Object.keys(data)
-          .filter(state => state === each.state_code)
-          .map(e => data[e].total.deceased),
-        other: Object.keys(data)
-          .filter(state => state === each.state_code)
-          .map(e => data[e].total.other),
-        population: Object.keys(data)
-          .filter(state => state === each.state_code)
-          .map(e => data[e].meta.population),
+        confirmed: data[each.state_code]?.total?.confirmed ?? 0,
+        recovered: data[each.state_code]?.total?.recovered ?? 0,
+        deceased: data[each.state_code]?.total?.deceased ?? 0,
+        other: data[each.state_code]?.total?.other ?? 0,
+        population: data[each.state_code]?.meta?.population ?? 0,
       }))
 
       // Updating the component state with the aggregated data and states information
@@ -305,28 +293,6 @@ class Home extends Component {
     )
   }
 
-  showSearchList = () => {
-    const {filteredSearchList} = this.state
-
-    return (
-      <ul
-        className="search-result-container"
-        testid="searchResultsUnorderedList"
-      >
-        {filteredSearchList.map(each => (
-          <Link to={`/state/${each.state_code}`}>
-            <SearchResult
-              key={each.state_code}
-              stateName={each.state_name}
-              stateCode={each.state_code}
-              id={each.state_code}
-            />
-          </Link>
-        ))}
-      </ul>
-    )
-  }
-
   whenButtonClicked = ascOrder => {
     const {statesInfo} = this.state
     const sortedStates = [...statesInfo].sort((a, b) => {
@@ -388,17 +354,14 @@ class Home extends Component {
           </div>
         </div>
         <hr />
-        {/* here to get the column wise details */}
-
         <ul className="state-wise-Covid-lists">
           {statesInfo.map(each => (
-            <li key={each.state_code} className="state-list-content">
+            <li className="state-list-content" key={each.stateCode}>
               <p className="state-Covid-details">{each.stateName}</p>
               <div className="home-column">
                 <p className="confirmed-Covid-details">{each.confirmed}</p>
               </div>
               <div className="home-column">
-                {/* here to find the Covid active cases  */}
                 <p className="active-Covid-details">
                   {each.confirmed - each.recovered - each.deceased - each.other}
                 </p>
@@ -424,7 +387,11 @@ class Home extends Component {
     const searchResult = statesList.filter(each =>
       each.state_name.toLowerCase().includes(searchItem.toLowerCase()),
     )
-    this.setState({filterSearchResult: searchResult})
+
+    this.setState({
+      filterSearchResult: searchResult,
+      search: searchItem,
+    })
   }
 
   removeFilteredList = () => {
@@ -433,24 +400,13 @@ class Home extends Component {
 
   render() {
     const {isLoading, search, filterSearchResult} = this.state
-
-    // Render the SearchResult components based on filterSearchResult
-    const showSearchList = filterSearchResult.map(each => (
-      <SearchResult
-        key={each.state_code}
-        stateName={each.state_name}
-        stateCode={each.state_code}
-        id={each.state_code}
-      />
-    ))
-
     return (
       <div className="Home-container">
         <Header />
         <div className="container">
           <div className="main-container">
             <div className="search-container">
-              <BsSearch data-testid="searchIcon" className="search-icon" />
+              <BsSearch testid="searchIcon" className="search-icon" />
               <input
                 type="search"
                 className="input"
@@ -459,8 +415,21 @@ class Home extends Component {
               />
             </div>
           </div>
-          {search.length > 0 ? showSearchList : ''}
-          {showSearchList}
+          {search.length > 0 && filterSearchResult.length > 0 && (
+            <ul
+              className="search-result-container"
+              testid="searchResultsUnorderedList"
+            >
+              {filterSearchResult.map(each => (
+                <SearchResult
+                  key={each.state_code}
+                  stateName={each.state_name}
+                  stateCode={each.state_code}
+                  id={each.state_code}
+                />
+              ))}
+            </ul>
+          )}
           {isLoading ? (
             this.renderLoadingView()
           ) : (

@@ -34,10 +34,7 @@ class Header extends Component {
         <div className="header-container">
           {/* Link to navigate to the Home Route */}
           <Link to="/" className="link">
-            <h1 className="logo">
-              {/* Text content */}
-              COVID19 <span className="india">INDIA </span>
-            </h1>
+            <h1 className="logo">COVID19INDIA</h1>
           </Link>
           <ul className="navBar">
             <Link to="/" className="link">
@@ -50,12 +47,16 @@ class Header extends Component {
           </ul>
         </div>
         <div className="mobile-menu">
-          <div className="mobile-header-container">
+          <div
+            className="mobile-header-container"
+            aria-hidden="true"
+            tabIndex="-1"
+          >
             {/* Link to navigate to the Home Route */}
             <Link to="/" className="link">
               <h1 className="logo">
                 {/* Text content */}
-                COVID19 <span className="india">INDIA </span>
+                COVID19<span className="india">INDIA</span>
               </h1>
             </Link>
             <button

@@ -315,7 +315,7 @@ class StateWiseCases extends Component {
               </ul>
             </div>
           </div>
-          <div className="graphsdata">
+          <div className="graphs-data">
             <TimeLines stateCode={stateCode} category={category} />
           </div>
         </div>

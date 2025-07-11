@@ -1,29 +1,34 @@
-.main-container {
-  width: 100vw;
-  background-size: cover;
+.single-state-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   background-color: #161625;
+  height: 100%;
+  min-height: 100vh;
+  margin-top: 70px;
 }
-.container {
+
+@media screen and (max-width: 600px) {
+  .single-state-main-container {
+    margin-top: 0px;
+  }
+}
+
+.state-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 30px;
+  padding: 25px;
+}
+
+.loader-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.state-name-container {
-  height: 64px;
-  margin: 10px;
-  background: rgba(2, 132, 199, 0.16);
-  border-radius: 32px;
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 48px;
-  color: #0ea5e9;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 0px 20px;
+  padding-top: 170px;
 }
 .state-name-row {
   display: flex;
@@ -33,20 +38,34 @@
   width: 100%;
 }
 
-.state-details {
-  width: 80%;
-  margin-top: 64px;
+.state-title {
+  height: 64px;
+  margin: 10px;
+  background: rgba(2, 132, 199, 0.16);
+  border-radius: 32px;
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 48px;
+  color: #0ea5e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
 }
+
 .test-title {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 24px;
   color: #94a3b8;
 }
 
-.testno {
+.testNo {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -54,13 +73,15 @@
   line-height: 24px;
   color: #94a3b8;
 }
+
 .last-date {
   font-family: Roboto;
-  font-style: normal;
+  font-style: italic;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   color: #cbd5e1;
+  margin-top: 7px;
 }
 
 .align-center-row {
@@ -69,10 +90,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 64px;
-}
-.hovereffectconfirm:active {
-  background-color: #331427;
+  margin-top: 50px;
 }
 
 .district-heading {
@@ -154,20 +172,4 @@
 
 .graphs-data {
   margin-top: 40px;
-}
-
-@media (max-width: 600px) {
-  .state-name-container {
-    font-size: 16px;
-  }
-
-  .test-title {
-    font-size: 12px;
-  }
-  .testno {
-    font-size: 16px;
-  }
-  .last-date {
-    font-size: 12px;
-  }
 }

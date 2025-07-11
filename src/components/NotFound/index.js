@@ -1,13 +1,11 @@
 import {Link} from 'react-router-dom'
 import './index.css'
-import Header from '../Header'
 
 const NotFound = () => (
-  <div className="container-not-found">
-    <Header />
+  <div className="not-found-main-container">
     <div className="not-found-data">
       <img
-        src="https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906728/notfound_okkgyt.png"
+        src="https://res.cloudinary.com/amst/image/upload/v1639762911/notfnd_e79uve.jpg"
         alt="not-found-pic"
         className="not-found-image"
       />

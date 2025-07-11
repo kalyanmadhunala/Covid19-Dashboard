@@ -1,6 +1,8 @@
 .barcharts-container {
   width: 100%;
   display: flex;
+  background-color: #161625;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;

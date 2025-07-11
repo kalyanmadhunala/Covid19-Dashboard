@@ -12,9 +12,9 @@ import {
 import Loader from 'react-loader-spinner'
 import './index.css'
 
-class TimeLines extends Component {
+class ChartsData extends Component {
   state = {
-    alldata: '',
+    allData: '',
     forOtherChart: '',
     isLoading: true,
   }
@@ -61,7 +61,7 @@ class TimeLines extends Component {
       }))
 
       this.setState({
-        alldata: particularState,
+        allData: particularState,
         forOtherChart: particularStateForOtherChart,
         isLoading: false,
       })
@@ -78,13 +78,12 @@ class TimeLines extends Component {
   )
 
   barChart = () => {
-    const {alldata} = this.state
+    const {allData} = this.state
     const {category} = this.props
     const barChartType = category.toLowerCase()
 
-    const toptendata = alldata.slice(Math.max(alldata.length - 10, 0))
-    // console.log('all data for bar chart')
-    // console.log(toptendata)
+    const toptendata = allData.slice(Math.max(allData.length - 10, 0))
+
     let colortype = '#9A0E31'
     if (barChartType === 'confirmed') {
       colortype = '#9A0E31'
@@ -98,7 +97,7 @@ class TimeLines extends Component {
 
     return (
       <div className="chart-wrapper">
-        <BarChart width={800} height={500} data={toptendata} barSize={45}>
+        <BarChart width={700} height={450} data={toptendata} barSize={45}>
           <XAxis
             dataKey="date"
             stroke={`${colortype}`}
@@ -152,12 +151,10 @@ class TimeLines extends Component {
 
   allChartsView = () => (
     <>
-      <div data-testid="barChartContainer" className="barchart-container">
-        {this.barChart()}
-      </div>
+      <div className="barchart-container">{this.barChart()}</div>
 
       <h1 className="charts-title">Spread Trends</h1>
-      <div data-testid="lineChartsContainer" className="barcharts-container">
+      <div testid="lineChartsContainer" className="barcharts-container">
         <div className="charts confirmed-background">
           {this.graph('confirmed', '#FF073A')}
         </div>
@@ -186,4 +183,4 @@ class TimeLines extends Component {
   }
 }
 
-export default TimeLines
+export default ChartsData

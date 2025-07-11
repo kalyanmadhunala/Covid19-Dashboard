@@ -26,27 +26,27 @@ class StateTotalData extends Component {
     const confirmedData = {
       name: 'Confirmed',
       logo:
-        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906699/check-mark_1_o3kbj1.png',
+        'https://res.cloudinary.com/amst/image/upload/v1639929248/conf_cof3e9.jpg',
       value: totalConfirmed,
     }
 
     const activeData = {
       name: 'Active',
       logo:
-        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906741/protection_1_re7mxu.png',
+        'https://res.cloudinary.com/amst/image/upload/v1639929248/act_kq7nfx.jpg',
       value: totalActive,
     }
 
     const recoveredData = {
       name: 'Recovered',
       logo:
-        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906752/recovered_1_kpsqyj.png',
+        'https://res.cloudinary.com/amst/image/upload/v1639929248/uyf_ndpqov.jpg',
       value: totalRecovered,
     }
     const deceasedData = {
       name: 'Deceased',
       logo:
-        'https://res.cloudinary.com/dzfr8ujso/image/upload/v1650906686/breathing_1_dkacsd.png',
+        'https://res.cloudinary.com/amst/image/upload/v1639929248/dese_tgak4e.jpg',
       value: totalDeceased,
     }
 
@@ -67,13 +67,13 @@ class StateTotalData extends Component {
     const {confirmedData, activeData, recoveredData, deceasedData} = this.state
 
     const {active} = this.props
-    const itsactiveonload = active ? 'confirmed-block' : ''
+    const itActiveOnLoad = active ? 'confirmed-block' : ''
 
     return (
       <>
-        <ul className="ul-list-eachstate ">
+        <ul className="ul-list-each-state ">
           <li
-            className={`category-item ${confirmedData.name} ${itsactiveonload} `}
+            className={`category-item ${confirmedData.name} ${itActiveOnLoad} `}
             tabIndex="-1"
             key={confirmedData.name}
             value={confirmedData.name}

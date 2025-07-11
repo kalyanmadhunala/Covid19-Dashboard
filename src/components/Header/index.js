@@ -1,11 +1,11 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {ImMenu2} from 'react-icons/im'
+
 import './index.css'
 
 class Header extends Component {
-  state = {
-    isToggleActive: false,
-  }
+  state = {isToggleActive: false}
 
   whenToggleButtonClick = () => {
     this.setState(prevState => ({isToggleActive: !prevState.isToggleActive}))
@@ -17,11 +17,11 @@ class Header extends Component {
         <Link to="/" className="link">
           <li className="item">Home</li>
         </Link>
-
-        <li className="item">Vaccination</li>
-
         <Link to="/about" className="link">
           <li className="item">About</li>
+        </Link>
+        <Link to="/vaccination" className="link">
+          <li className="item">Vaccination</li>
         </Link>
       </ul>
     </>
@@ -29,10 +29,10 @@ class Header extends Component {
 
   render() {
     const {isToggleActive} = this.state
+    console.log(isToggleActive)
     return (
       <>
         <div className="header-container">
-          {/* Link to navigate to the Home Route */}
           <Link to="/" className="link">
             <h1 className="logo">COVID19INDIA</h1>
           </Link>
@@ -40,9 +40,12 @@ class Header extends Component {
             <Link to="/" className="link">
               <li className="item">Home</li>
             </Link>
-
             <Link to="/about" className="link">
               <li className="item">About</li>
+            </Link>
+
+            <Link to="/vaccination" className="link">
+              <li className="item">Vaccination</li>
             </Link>
           </ul>
         </div>
@@ -52,24 +55,19 @@ class Header extends Component {
             aria-hidden="true"
             tabIndex="-1"
           >
-            {/* Link to navigate to the Home Route */}
             <Link to="/" className="link">
-              <h1 className="logo">
-                {/* Text content */}
-                COVID19<span className="india">INDIA</span>
-              </h1>
+              <h1 className="logo">COVID19INDIA</h1>
             </Link>
             <button
               type="button"
               className="toggle-button"
               onClick={this.whenToggleButtonClick}
             >
-              <img src="/img/add-to-queue 1.png" alt="menu" />
+              <ImMenu2 className="menuIcon" alt="menu" />
             </button>
           </div>
-
           <div className="menu">
-            {isToggleActive ? this.showDropDownMenu() : ''}
+            {isToggleActive ? this.showDropDownMenu() : null}
           </div>
         </div>
       </>

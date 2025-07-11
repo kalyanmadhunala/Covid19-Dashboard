@@ -1,20 +1,18 @@
-.not-found-data {
+.not-found-main-container {
   height: 100%;
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   background-color: #161625;
+}
+.not-found-data {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 0px;
+  padding: 12px;
 }
 
-.container-not-found {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.not-found-image {
-}
 .not-found-title {
   font-family: Roboto;
   font-style: normal;

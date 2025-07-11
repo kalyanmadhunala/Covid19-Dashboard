@@ -1,39 +1,72 @@
-.footer-container {
+.footer-bg-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: #161625;
+}
+
+.footer-responsive-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 24px;
-  padding-bottom: 42px;
-}
-.logo {
-  font-family: Bree Serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 24px;
-  color: #f8fafc;
-  text-align: center;
-}
-.india {
-  color: #3b82f6;
 }
 
-.tagline {
-  font-family: Roboto;
+.footer-heading {
+  color: #f8fafc;
+  font-family: Bree Serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
-  color: #94a3b8;
 }
 
-.icon {
+.footer-span-heading {
+  color: #007bff;
+  font-family: Bree Serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 52.9233px;
-  line-height: 61px;
-  text-align: center;
-  color: #cbd5e1;
-  margin: 0px 32px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.footer-description {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #94a3b8;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.footer-icons-container {
+  width: 70%;
+  margin: 16px;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (min-width: 768) {
+  .footer-heading {
+    font-family: Bree Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .footer-description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer-icons-container {
+    width: 80%;
+  }
 }
